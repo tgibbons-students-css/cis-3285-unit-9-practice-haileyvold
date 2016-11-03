@@ -98,5 +98,6 @@ namespace SingleResponsibilityPrinciple.Tests
             Assert.AreEqual(endCount - startCount, 2);
         }
 
+
     }
 }

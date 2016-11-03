@@ -75,12 +75,26 @@ namespace SingleResponsibilityPrinciple
                 return false;
             }
 
+            if (tradeAmount > 100000)
+            {
+                LogMessage("WARN: Trade amount is not a valid value: '{1}'", currentLine, fields[2]);
+                return false;
+            }
+
+            if (tradeAmount < 1000)
+            {
+                LogMessage("WARN:  Trade amount is not a valid value: '{1}'", currentLine, fields[2]);
+                return false;
+            }
+
+
             return true;
         }
 
         private void LogMessage(string message, params object[] args)
         {
             Console.WriteLine(message, args);
+
         }
 
         private TradeRecord MapTradeDataToTradeRecord(string[] fields)
